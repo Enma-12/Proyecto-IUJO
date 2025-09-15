@@ -1,0 +1,224 @@
+/* ======= Variables de tema ======= */
+:root{
+  --bg: #0b1220;             /* fondo oscuro */
+  --bg-2: radial-gradient(1200px 600px at 10% 10%, #14213d55 0%, transparent 60%),
+           radial-gradient(1000px 500px at 90% 90%, #4cc9f055 0%, transparent 55%),
+           linear-gradient(180deg, #0b1220 0%, #0b1220 100%);
+  --glass: rgba(255,255,255,0.1);
+  --stroke: rgba(255,255,255,0.2);
+  --text: #eaf2ff;
+  --muted:#a7b1c7;
+  --brand:#4cc9f0;
+  --brand-2:#fca311;
+  --shadow: 0 8px 30px rgba(0,0,0,.25);
+}
+
+/* Reset básico */
+*{ box-sizing: border-box; margin:0; padding:0 }
+html,body{ height:100% }
+body{
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Arial;
+  color: var(--text);
+  background: var(--bg-2);
+  line-height: 1.5;
+}
+
+/* ======= Topbar ======= */
+.topbar{
+  position: sticky; top:0; z-index: 50;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 13, 49, 0.979);
+  border-bottom: 1px solid var(--stroke);
+  display:flex; align-items:center; justify-content:space-between;
+  padding: .8rem 1.2rem;
+}
+.brand{ font-weight:700; letter-spacing:.5px }
+.nav a{
+  color: var(--text); text-decoration:none; margin-left:1rem; font-weight:600;
+  opacity:.85; transition: .2s ease;
+}
+.nav a:hover{ opacity:1; color: var(--brand) }
+
+/* ======= Hero ======= */
+.hero{
+  min-height: 72vh;
+  background:
+    linear-gradient(180deg, rgba(25, 53, 71, 0.1), rgb(0, 6, 14)),
+    url("img/Imagen\ de\ WhatsApp\ 2025-09-15\ a\ las\ 11.42.19_2e62c91d.jpg") center/cover no-repeat;
+  display:grid; place-items:center; padding: 4rem 1rem;
+}
+.hero-glass{
+  max-width: 860px; text-align:center; padding: 2.5rem 2rem;
+  background: var(--glass); border: 1px solid var(--stroke);
+  border-radius: 22px; box-shadow: var(--shadow); backdrop-filter: blur(12px);
+}
+.hero h1{ font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight:800 }
+.hero p{ margin-top:.7rem; color: var(--muted) }
+.btn{
+  display:inline-block; margin-top:1.2rem; padding:.9rem 1.3rem;
+  border-radius: 14px; font-weight:700; text-decoration:none;
+  color:#0b1220; background: #ffffff;
+  border: none; cursor: pointer; transition: transform .15s ease;
+}
+.btn:hover{ transform: translateY(-2px) }
+
+/* ======= Contenedores ======= */
+.wrap{ padding: 3.5rem 1.2rem; max-width: 1100px; margin: 0 auto }
+.section-title{
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  margin-bottom:.5rem; font-weight:800;
+}
+.section-sub{ color: var(--muted); margin-bottom:1.5rem }
+
+/* ======= Cards Servicios ======= */
+.grid{
+  display:grid; gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.card{
+  background: var(--glass); border: 1px solid var(--stroke);
+  border-radius: 18px; overflow:hidden; box-shadow: var(--shadow);
+  transition: transform .2s ease, border-color .2s ease;
+}
+.card:hover{ transform: translateY(-3px); border-color: rgba(252,163,17,.4) }
+.card img{ width:100%; height:180px; object-fit:cover }
+.card-body{ padding: 1rem 1rem 1.2rem }
+.card-body h3{ margin-bottom:.4rem }
+.card-body p{ color: var(--muted) }
+
+/* ======= Carrusel (CSS only) ======= */
+.carousel{
+  position:relative; overflow:hidden; border-radius: 18px;
+  background: var(--glass); border:1px solid var(--stroke); box-shadow: var(--shadow);
+}
+.carousel input{ display:none }
+.slides{ display:flex; width: 100%; transition: transform .6s ease}
+.slide{ width:100%; flex: 1 0 100% }
+.slide img{ width:100%; height:450px; object-fit:cover; display:block }
+
+/* Dots */
+.dots{
+  position:absolute; left:0; right:0; bottom:10px; display:flex;
+  justify-content:center; gap:.5rem;
+}
+.dots label{
+  width:10px; height:10px; border-radius:50%; cursor:pointer;
+  background:#ffffff66; border:1px solid #ffffffaa; transition:.2s;
+}
+.dots label:hover{ background:#fff }
+
+/* Arrows (tres pares para cada slide) */
+.arrows label{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:42px; height:42px; display:grid; place-items:center; cursor:pointer;
+  background: rgba(0,0,0,.35); border:1px solid #ffffff55; color:#fff;
+  border-radius: 50%; font-size: 22px; user-select:none;
+}
+.prev{ left:12px } .next{ right:12px }
+
+/* Estados de slides */
+#s1:checked ~ .slides{ transform: translateX(0%) }
+#s2:checked ~ .slides{ transform: translateX(-100%) }
+#s3:checked ~ .slides{ transform: translateX(-200%) }
+
+/* Mostrar flechas correctas según slide */
+#s1:checked ~ .arrows .prev{ display:none }        /* n/a para primero */
+#s1:checked ~ .arrows .n1{ display:grid }          /* next de 1 -> 2 */
+#s1:checked ~ .arrows .p2, 
+#s1:checked ~ .arrows .n2,
+#s1:checked ~ .arrows .p3,
+#s1:checked ~ .arrows .n3{ display:none }
+
+#s2:checked ~ .arrows .p2{ display:grid }          /* prev de 2 -> 1 */
+#s2:checked ~ .arrows .n2{ display:grid }          /* next de 2 -> 3 */
+#s2:checked ~ .arrows .prev,
+#s2:checked ~ .arrows .n1,
+#s2:checked ~ .arrows .p3,
+#s2:checked ~ .arrows .n3{ display:none }
+
+#s3:checked ~ .arrows .p3{ display:grid }          /* prev de 3 -> 2 */
+#s3:checked ~ .arrows .n3{ display:grid }          /* next de 3 -> 1 */
+#s3:checked ~ .arrows .prev,
+#s3:checked ~ .arrows .n1,
+#s3:checked ~ .arrows .p2,
+#s3:checked ~ .arrows .n2{ display:none }
+
+/* ======= Formulario ======= */
+.contact .form{
+  margin-top:1rem; display:grid; gap:1rem;
+  grid-template-columns: repeat(2, 1fr);
+  background: var(--glass); border:1px solid var(--stroke); border-radius:18px;
+  padding: 1.2rem; box-shadow: var(--shadow);
+}
+.field{ display:flex; flex-direction:column; gap:.4rem }
+.field-full{ grid-column: 1 / -1 }
+label{ font-weight:600; opacity:.9 }
+input, textarea{
+  background: rgba(255,255,255,.06); color:var(--text);
+  border:1px solid var(--stroke); border-radius:12px; padding:.9rem;
+  outline:none; transition: border-color .15s ease, box-shadow .15s ease;
+}
+input:focus, textarea:focus{
+  border-color: rgba(76,201,240,.6);
+  box-shadow: 0 0 0 3px rgba(76,201,240,.15);
+}
+.contact .btn{ grid-column: 1 / -1; justify-self: start }
+
+/* ======= Mapa ======= */
+.map{
+  margin-top:1rem; border-radius:18px; overflow:hidden;
+  border: 1px solid var(--stroke); box-shadow: var(--shadow);
+}
+.map iframe{ width:100%; height:360px; display:block }
+
+/* ======= Footer ======= */
+.foot{
+  text-align:center; color: var(--muted);
+  padding: 2rem 1rem; border-top:1px solid var(--stroke);
+  background: linear-gradient(180deg, transparent, rgba(255,255,255,.03));
+}
+
+/* ======= Responsive ======= */
+@media (max-width: 720px){
+  .nav{ display:none } /* minimalista en móviles */
+  .hero{ min-height: 66vh }
+  .slide img{ height: 260px }
+  .contact .form{ grid-template-columns: 1fr }
+}
+
+
+/* ===== Reloj digital ===== */
+#clock{
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  letter-spacing: .5px;
+  padding: .35rem .7rem;
+  border-radius: 12px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.2);
+  box-shadow: 0 4px 16px rgba(0,0,0,.18) inset, 0 4px 20px rgba(0,0,0,.18);
+  color: var(--text);
+  min-width: 128px;
+  text-align: center;
+}
+
+/* Ajuste en móviles */
+@media (max-width: 720px){
+  #clock{ position: fixed; right: 12px; bottom: 12px; z-index: 60 }
+}
+
+iframe {
+  display: block; /* Necesario para que margin: auto funcione */
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%; /* O el ancho que desees */
+}
+
+.section-2 {
+  text-align: center;
+  margin: auto;
+}
+
+#map {
+  height: 400px;
+}

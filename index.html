@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KZ Auriculares | Conoce el poder de la música </title>
+  <link rel="stylesheet" href="estilo.css"/>
+
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+
+      <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+     <script src="https://kit.fontawesome.com/cf1fb60fea.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Barra superior -->
+  <header class="topbar">
+  <div class="brand"><i class="fa-solid fa-headphones"></i> Auriculares KZ</div>
+  <nav class="nav">
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Categorías</a>
+    <a href="#galeria">Modelos</a>
+    <a href="#contacto">Contáctanos</a>
+    <a href="#ubicacion">Ubicación</a>
+  </nav>
+
+  <!-- RELOJ -->
+  <div id="clock" aria-live="polite" title="Hora local">
+    00:00:00
+  </div>
+</header>
+
+
+  <!-- Hero -->
+  <section id="inicio" class="hero">
+    <div class="hero-glass">
+     <main>
+     <h1>¡Bienvenido al Universo de Sonido de KZ!</h1>
+        <p>Bienvenido a un lugar donde la música no solo se escucha, se siente. En <strong>KZ (Knowledge Zenith)</strong>, nos dedicamos a transformar tu experiencia auditiva. Nuestros auriculares alámbricos no son solo un accesorio; son la puerta de entrada a un audio de alta fidelidad, diseñado para puristas y amantes del sonido. Con una combinación de artesanía de precisión e innovación servicioslógica, cada par de audífonos KZ te acerca al artista, revelando matices y detalles que nunca creíste posibles.</p>
+
+        
+</main>
+      <a class="btn" href="#contacto">Subscribete para mas novedades</a>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios" class="wrap">
+    <h2 class="section-tittle">¿Por qué elegir KZ?</h2><br>
+        <p><strong>Tecnología de Vanguardia:</strong> Utilizamos controladores dinámicos y de armadura balanceada para ofrecerte un sonido nítido y potente en todo el espectro de frecuencias.</p><br>
+        <p><strong>Comodidad y Estilo:</strong> Diseñados con una ergonomía que se adapta perfectamente a tu oído, nuestros auriculares son tan cómodos como elegantes, ideales para largas sesiones de escucha sin fatiga.</p><br>
+        <p><strong>Calidad a tu Alcance:</strong> Nuestra misión es democratizar el audio de alta fidelidad. Creemos que un sonido excepcional no tiene por qué ser inaccesible.</p><br>
+        <p>Descubre nuestra colección y encuentra el par de auriculares que te permitirá redescubrir tus canciones favoritas. Con <strong>KZ</strong>, el poder de la música está en tus manos.</p><br>
+    
+        <h2 class="section-tittle">Categorías</h2><br>
+    <div class="grid">
+      <article class="card">
+        <img src="img/img.1.jpg" alt="Reparación de hardware">
+        <div class="card-body">
+          <h3>Auriculares con cable</h3>
+          <p>Alta Fidelidad en la Palma de tu Mano
+Redescubre el verdadero sonido con la precisión y potencia de nuestros auriculares alámbricos.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="img/img.2.jpg" alt="Seguridad y antivirus">
+        <div class="card-body">
+          <h3>Auriculares inhalambricos</h3>
+          <p> Libertad sin Compromisos
+Experimenta un sonido de alta fidelidad sin cables. Nuestra tecnología inalámbrica te ofrece una conexión estable y un audio impecable en cada nota.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="img/img.3.jpg" alt="Instalación de software">
+        <div class="card-body">
+          <h3>Accesorios</h3>
+          <p>Perfecciona tu Sonido
+Cada detalle cuenta. Descubre nuestra gama de accesorios diseñados para mejorar y personalizar tu experiencia de audio. </p>
+        </div>
+      </article>
+
+
+    </div>
+  </section>
+
+  <!-- Carrusel -->
+  <section id="galeria" class="wrap">
+    <h2 class="section-title">Modelos mas populares</h2>
+
+    <div class="carousel">
+      <!-- Controles (CSS only) -->
+      <input type="radio" name="slides" id="s1" checked>
+      <input type="radio" name="slides" id="s2">
+      <input type="radio" name="slides" id="s3">
+
+      <div class="slides">
+        <div class="slide"><img src="img/carr.1.jpg" alt="Computadora 1"></div>
+        <div class="slide"><img src="img/carr.2.jpg" alt="Computadora 2"></div>
+        <div class="slide"><img src="img/carr.3.jpg" alt="Computadora 3"></div>
+      </div>
+
+      <div class="dots">
+        <label for="s1"></label>
+        <label for="s2"></label>
+        <label for="s3"></label>
+      </div>
+
+      <div class="arrows">
+        <label for="s3" class="prev">‹</label>
+        <label for="s2" class="next n1">›</label>
+
+        <label for="s1" class="prev p2">‹</label>
+        <label for="s3" class="next n2">›</label>
+
+        <label for="s2" class="prev p3">‹</label>
+        <label for="s1" class="next n3">›</label>
+      </div>
+    </div>
+  </section>
+
+<section class="Contenedor-multimedia">
+    <div class="video-container">
+        <h2 class="section-2">Mira el poder de nuestro KZ ZS10 PRO</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/wyaAge3Szvc?si=pndl-hd7vCXs0Kl8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+  <!-- Contacto -->
+  <section id="contacto" class="wrap contact">
+    <h2 class="section-title">Contáctanos</h2>
+    <form class="form" action="procesar-formulario" method="post">
+      <div class="field">
+        <label for="nombre">Nombre completo</label>
+<input 
+  id="nombre" 
+  name="nombre" 
+  type="text" 
+  required 
+  maxlength="40" 
+  pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" 
+  title="Solo se permiten letras y espacios, máximo 40 caracteres"
+  placeholder="Tu nombre aquí">
+<script>
+  const inputNombre = document.getElementById('nombre');
+  
+  inputNombre.addEventListener('input', () => {
+    // Elimina cualquier número o carácter raro en tiempo real
+    inputNombre.value = inputNombre.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '');
+  });
+</script>
+
+      </div>
+      <div class="field">
+        <label for="email">Correo electrónico</label>
+        <input id="email" name="email" type="email" required placeholder="Tu correo aquí"/>
+      </div>
+      
+      <button class="btn" type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Mapa -->
+  <section id="ubicacion" class="wrap">
+    <h2 class="section-title">Ubicación</h2>
+    <div class="map" id="map"></div>
+
+    <script> 
+      var map = L.map('map').setView([10.510717, -66.936959], 18);
+      var marker = L.marker([10.510717, -66.936959]).addTo(map);
+
+
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(map);
+    </script>
+  </section>
+
+    <footer class="foot"> <p>© Enmanuel-2025. Todos los derechos reservados.
+    </p>
+
+
+    </footer>
+
+  <script>
+  (function(){
+    const el = document.getElementById('clock');
+
+    function two(n){ return String(n).padStart(2,'0'); }
+
+    function tick(){
+      const now = new Date();
+
+      // --- Formato 12h con AM/PM ---
+      let h = now.getHours();
+      const ampm = h >= 12 ? 'PM' : 'AM';
+      h = h % 12 || 12; // convierte 0 en 12
+      const hh = two(h);
+      const mm = two(now.getMinutes());
+      const ss = two(now.getSeconds());
+
+      el.innerText = `${hh}:${mm}:${ss} ${ampm}`;
+
+      // Corrección precisa para que cambie justo en el segundo
+      const ms = now.getMilliseconds();
+      setTimeout(tick, 1000 - ms + 5);
+    }
+
+    tick();
+  })();
+</script>
+
+
+</body>
+</html>
